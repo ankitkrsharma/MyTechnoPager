@@ -1,395 +1,313 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Techno Pager</title>
+  <head>
+    <title>My Techno Pager</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial;
+      }
 
-  <style>
+      body {
+        background-color: #f4f4f4;
+        border: #014b73;
+      }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
+      .container {
+        width: 1300px;
+        background-color: white;
+        margin: auto;
+        margin-top: 20px;
+        box-shadow: 0px 0px 10px gray;
+      }
 
-    body{
-      background:#f4f4f4;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:20px;
-    }
+      .top {
+        display: flex;
+      }
 
-    .container{
-      width:1300px;
-      background:white;
-      overflow:hidden;
-      position:relative;
-      box-shadow:0 4px 15px rgba(0,0,0,0.15);
-    }
+      .top-left {
+        width: 60%;
+        background-color: #014b73;
+        color: white;
+        padding: 30px;
+        border-bottom-right-radius: 200px;
+      }
 
-    /* TOP SECTION */
+      .profile {
+        display: flex;
+      }
 
-    .top{
-      display:flex;
-      justify-content:space-between;
-      position:relative;
-      min-height:260px;
-    }
+      .profile img {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        margin-right: 20px;
+        border: 3px solid white;
+      }
 
-    .top-left{
-      width:58%;
-      background:#014b73;
-      color:white;
-      padding:25px 40px;
-      border-bottom-right-radius:250px;
-      position:relative;
-    }
+      .info h1 {
+        font-size: 40px;
+      }
 
-    .profile{
-      display:flex;
-      gap:18px;
-      align-items:flex-start;
-    }
+      .info h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
 
-    .profile img{
-      width:95px;
-      height:95px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid white;
-    }
+      .info p {
+        margin-top: 8px;
+      }
 
-    .info h1{
-      font-size:42px;
-      font-weight:600;
-    }
+      .top-right {
+        width: 40%;
+        padding: 30px;
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+      }
 
-    .info h2{
-      font-size:22px;
-      font-weight:400;
-      margin-bottom:10px;
-    }
+      .logo img {
+        width: 200px;
+      }
 
-    .info p{
-      margin:7px 0;
-      font-size:16px;
-    }
+      .description {
+        border: #014b73;
+        margin-top: 40px;
+        font-size: 18px;
+        line-height: 30px;
+        color: #080808;
+      }
 
-    .top-right{
-      width:42%;
-      padding:30px 40px;
-      position:relative;
-    }
+      .bottom {
+        display: flex;
+      }
 
-    .logo{
-      text-align:right;
-      font-size:42px;
-      color:#0096d6;
-      font-weight:600;
-      margin-bottom:40px;
-    }
+      .left-panel {
+        width: 30%;
+        background-color: #eeeeee;
+        padding: 30px;
+        border-top-right-radius: 200px;
+      }
 
-    .description{
-      font-size:18px;
-      color:#4b5563;
-      line-height:1.6;
-      font-weight:500;
-    }
+      .left-panel h2 {
+        color: #0077b6;
+        margin-bottom: 20px;
+      }
 
-    /* BOTTOM SECTION */
+      .cert-box {
+        background-color: white;
+        border: 2px dashed gray;
+        padding: 20px;
+        border-radius: 15px;
+      }
 
-    .bottom{
-      display:flex;
-      min-height:600px;
-    }
+      .cert-box h3 {
+        color: #0077b6;
+        margin-bottom: 15px;
+      }
 
-    /* LEFT PANEL */
+      .cert-box ul {
+        margin-left: 20px;
+      }
 
-    .left-panel{
-      width:30%;
-      background:#efefef;
-      border-top-right-radius:250px;
-      padding:40px 40px 30px;
-    }
+      .cert-box li {
+        margin-bottom: 10px;
+      }
 
-    .left-panel h2{
-      color:#0077b6;
-      margin-bottom:18px;
-      font-size:28px;
-    }
+      .quote {
+        margin-top: 30px;
+        color: #0077b6;
+        font-size: 22px;
+        font-style: italic;
+      }
 
-    .cert-box{
-      background:white;
-      border:2px dashed #d8d8d8;
-      border-radius:18px;
-      padding:18px;
-      margin-bottom:25px;
-    }
+      .right-panel {
+        width: 70%;
+        padding: 30px;
+      }
 
-    .cert-box h3{
-      color:#0077b6;
-      margin-bottom:15px;
-      font-size:20px;
-    }
+      .right-panel h2 {
+        color: #0077b6;
+        margin-bottom: 20px;
+      }
 
-    .cert-box ul{
-      padding-left:20px;
-    }
+      .project-box {
+        border: 2px dashed gray;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+      }
 
-    .cert-box li{
-      margin-bottom:10px;
-      color:#555;
-      line-height:1.5;
-    }
+      .project-box h3 {
+        color: #0077b6;
+        margin-bottom: 15px;
+      }
 
-    .quote{
-      color:#0077b6;
-      font-style:italic;
-      font-weight:600;
-      font-size:22px;
-      line-height:1.4;
-      margin-top:20px;
-    }
+      .project-box ul {
+        margin-left: 20px;
+      }
 
-    /* RIGHT PANEL */
+      .project-box li {
+        margin-bottom: 10px;
+      }
 
-    .right-panel{
-      width:70%;
-      padding:40px;
-    }
+      table {
+        width: 100%;
+        border-spacing: 0px 10px;
+      }
 
-    .right-panel h2{
-      color:#0077b6;
-      margin-bottom:18px;
-      font-size:28px;
-    }
+      th {
+        background-color: #dff3fb;
+        padding: 12px;
+        color: #0077b6;
+      }
 
-    .project-box{
-      border:2px dashed #ddd;
-      border-radius:18px;
-      padding:20px;
-      margin-bottom:45px;
-    }
+      td {
+        background-color: #f5f5f5;
+        padding: 12px;
+        text-align: center;
+      }
+    </style>
+  </head>
 
-    .project-box h3{
-      color:#0077b6;
-      margin-bottom:12px;
-      font-size:22px;
-    }
+  <body>
+    <div class="container">
+      <div class="top">
+        <div class="top-left">
+          <div class="profile">
+            <img src="C:\Users\ankit\Downloads\ankit_pic_.jpg" alt="Profile" />
 
-    .project-box ul{
-      padding-left:25px;
-    }
+            <div class="info">
+              <h1>Ankit Kumar Sharma</h1>
+              <h2>Software Engineer</h2>
 
-    .project-box li{
-      margin-bottom:10px;
-      color:#555;
-      line-height:1.5;
-      font-size:17px;
-    }
+              <p>Kolkata, India</p>
+              <p>ankitk342@gmail.com</p>
+              <p>9800003210</p>
+            </div>
+          </div>
+        </div>
 
-    /* TABLE */
-
-    table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0 12px;
-    }
-
-    thead tr{
-      background:#dff3fb;
-    }
-
-    thead th{
-      padding:14px;
-      color:#0077b6;
-      font-size:20px;
-      text-align:center;
-    }
-
-    thead th:first-child{
-      border-top-left-radius:18px;
-      border-bottom-left-radius:18px;
-      text-align:left;
-    }
-
-    thead th:last-child{
-      border-top-right-radius:18px;
-      border-bottom-right-radius:18px;
-    }
-
-    tbody tr{
-      background:#f7f7f7;
-      box-shadow:0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    tbody td{
-      padding:14px;
-      font-size:18px;
-      text-align:center;
-      color:#444;
-    }
-
-    tbody td:first-child{
-      border-top-left-radius:18px;
-      border-bottom-left-radius:18px;
-      text-align:left;
-    }
-
-    tbody td:last-child{
-      border-top-right-radius:18px;
-      border-bottom-right-radius:18px;
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-  <div class="container">
-
-    <!-- TOP SECTION -->
-
-    <div class="top">
-
-      <div class="top-left">
-
-        <div class="profile">
-
-          <img src="profile.jpg" alt="Profile">
-
-          <div class="info">
-            <h1>Your Name</h1>
-            <h2>Software Engineer</h2>
-
-            <p>📍 Kolkata, India</p>
-            <p>✉ yourmail@gmail.com</p>
-            <p>📞 9876543210</p>
+        <div class="top-right">
+          <div class="logo">
+            <img src="C:\Users\ankit\Downloads\cropped-logo-2 (1).jpg" />
           </div>
 
+          <div class="description">
+            ML and Data Science enthusiast with experience in deep learning,
+            research, and intelligent systems. Passionate about building
+            scalable ML solutions and solving real-world problems using data and
+            innovation.
+          </div>
         </div>
-
       </div>
 
-      <div class="top-right">
+      <div class="bottom">
+        <div class="left-panel">
+          <h2>Certifications</h2>
 
-        <div class="logo">
-          Capgemini
+          <div class="cert-box">
+            <h3>My Certifications</h3>
+
+            <ul>
+              <li>Database Management System - NPTEL | 2025</li>
+
+              <li>Design and Analysis of Algorithms - NPTEL | 2025</li>
+
+              <li>Big Data Computation - NPTEL | 2025</li>
+
+              <li>
+                Google Data Analytics Professional Certificate - Coursera | 2024
+              </li>
+            </ul>
+          </div>
+
+          <div class="quote">
+            “Turning ideas into scalable and impactful technology solutions”
+          </div>
         </div>
 
-        <div class="description">
-          Software Engineer experienced in Java, React, SQL,
-          HTML, CSS, and JavaScript. Focused on building
-          responsive web applications and learning to develop
-          scalable software solutions.
-        </div>
+        <div class="right-panel">
+          <h2>Key Projects</h2>
 
+          <div class="project-box">
+            <h3>
+              Full-Stack Medical Diagnostic Dashboard for Lung Cancer
+              Classification ResNet, Flask, Streamlit, MySQL, TensorFlow/Keras •
+            </h3>
+
+            <ul>
+              <li>
+                Developed a four-tier full-stack medical diagnostic system
+                integrating frontend, backend, database, and ML model via secure
+                REST APIs.
+              </li>
+              <li>
+                Built a Streamlit dashboard for doctors to upload CT scans,
+                manage patient data, and view real-time diagnostic results.
+              </li>
+              <li>
+                Implemented Flask backend for authentication, API orchestration,
+                and data handling with MySQL for patient record storage.
+              </li>
+              <li>
+                Demonstrated an end-to-end applied ML pipeline from model
+                development to clinical-facing deployment.
+              </li>
+            </ul>
+          </div>
+
+          <table>
+
+    <thead>
+        <tr>
+            <th>Technology</th>
+            <th>Level</th>
+            <th>Experience</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td>Java</td>
+            <td>Beginner</td>
+            <td>0</td>
+        </tr>
+
+        <tr>
+            <td>SpringBoot</td>
+            <td>Beginner</td>
+            <td>0</td>
+        </tr>
+
+        <tr>
+            <td>Python</td>
+            <td>Beginner</td>
+            <td>0</td>
+        </tr>
+
+        <tr>
+            <td>MySql</td>
+            <td>Beginner</td>
+            <td>0</td>
+        </tr>
+
+        <tr>
+            <td>ML</td>
+            <td>Beginner</td>
+            <td>0</td>
+        </tr>
+
+    </tbody>
+
+</table>
+        </div>
       </div>
-
     </div>
-
-    <!-- BOTTOM SECTION -->
-
-    <div class="bottom">
-
-      <!-- LEFT -->
-
-      <div class="left-panel">
-
-        <h2>Certifications</h2>
-
-        <div class="cert-box">
-
-          <h3>Start Your First Certification</h3>
-
-          <ul>
-            <li>Pick a beginner-friendly free certification.</li>
-            <li>Use the Talent Portal for courses.</li>
-            <li>Study daily and take mock tests.</li>
-            <li>Add your badge here once completed.</li>
-          </ul>
-
-        </div>
-
-        <div class="quote">
-          “Creating seamless user experiences across platforms with Java, React and React Native”
-        </div>
-
-      </div>
-
-      <!-- RIGHT -->
-
-      <div class="right-panel">
-
-        <h2>Key Projects</h2>
-
-        <div class="project-box">
-
-          <h3>Kickstart Your Next Project</h3>
-
-          <ul>
-            <li>Pick a problem you care about and start small.</li>
-            <li>Use datasets and learning resources.</li>
-            <li>Pair with teammates and build together.</li>
-            <li>Document your tech stack and impact.</li>
-          </ul>
-
-        </div>
-
-        <!-- TABLE -->
-
-        <table>
-
-          <thead>
-            <tr>
-              <th>Technology</th>
-              <th>Experience Level</th>
-              <th>Years of Experience</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-            <tr>
-              <td>Java</td>
-              <td>Beginner</td>
-              <td>0</td>
-            </tr>
-
-            <tr>
-              <td>SQL</td>
-              <td>Beginner</td>
-              <td>0</td>
-            </tr>
-
-            <tr>
-              <td>React.js</td>
-              <td>Beginner</td>
-              <td>0</td>
-            </tr>
-
-            <tr>
-              <td>React Native</td>
-              <td>Beginner</td>
-              <td>0</td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</body>
+  </body>
 </html>
